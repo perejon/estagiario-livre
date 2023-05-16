@@ -1,0 +1,29 @@
+<header id="general-header">
+  <section class="row-1">
+    <div class="logo">
+      <img src="https://i.imgur.com/QNhrVTB.png" alt="Logo">
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Pesquisar...">
+      <button type="button" name="button"><i class="fa fa-search"></i></button>
+    </div>
+  </section>
+  <section class="row-2">
+    <div class="categories">
+      <nav class="collections">
+        {%- for link in linklists['main-menu'].links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          <!-- subcollections -->
+          {% if link.links != blank %}
+            <div class="subcollections">
+              {% for sublink in link.links %}
+                <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </div>
+    <div class="user"></div>
+  </section>
+</header>
