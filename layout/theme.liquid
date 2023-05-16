@@ -11,8 +11,8 @@
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    {{ 'style.css' | asset_url | stylesheet_tag }}
-    {{ 'style.js' | asset_url | script_tag }}
+    {{ 'style.css' | asset_url | style | stylesheet_tag }}
+    {{ 'script.js' | asset_url | script_tag }}
   </head>
   <body>
     {%- section 'header' -%}
