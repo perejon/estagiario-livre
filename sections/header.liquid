@@ -9,21 +9,30 @@
     </div>
   </section>
   <section class="row-2">
-    <div class="categories">
-      <nav class="collections">
+    <nav class="collections">
+      <ul class="principal-collection">
         {%- for link in linklists['main-menu'].links -%}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          <!-- subcollections -->
-          {% if link.links != blank %}
-            <div class="subcollections">
-              {% for sublink in link.links %}
-                <a href="{{ sublink.url }}">{{ sublink.title }}</a>
-              {% endfor %}
-            </div>
-          {% endif %}
+          <li class="collection">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            <!-- subcollections -->
+            {% if link.links != blank %}
+              <ul class="subcollection">
+                {% for sublink in link.links %}
+                  <li>
+                    <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
         {% endfor %}
-      </nav>
+      </ul>
+    </nav>
+    <div class="user">
+      <a class="create-account" href="{{ routes.account_register_url }}">Crie a sua conta</a>
+      <a class="login" href="{{ routes.account_login_url }}">Entre</a>
+      <a class="orders" href="">Compras</a>
+      <a class="cart" href="{{ routes.cart_url }}"><i class="fa fa-shopping-cart"></i></a>
     </div>
-    <div class="user"></div>
   </section>
 </header>
