@@ -1,7 +1,7 @@
 <header id="general-header">
   <section class="row-1">
     <div class="logo">
-      <img src="https://i.imgur.com/QNhrVTB.png" alt="Logo">
+      <img src="{{ 'https://i.imgur.com/QNhrVTB.png' }}" alt="Logo">
     </div>
     <div class="search">
       <input type="text" placeholder="Pesquisar...">
@@ -13,7 +13,11 @@
       <ul class="principal-collection">
         {%- for link in linklists['main-menu'].links -%}
           <li class="collection">
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url }}">{{ link.title }}
+            {% if link.links != blank %}
+              {% render 'icon-arrow-down' %}
+            {% endif %}
+          </a>
             <!-- subcollections -->
             {% if link.links != blank %}
               <ul class="subcollection">
@@ -32,7 +36,7 @@
       <a class="create-account" href="{{ routes.account_register_url }}">Crie a sua conta</a>
       <a class="login" href="{{ routes.account_login_url }}">Entre</a>
       <a class="orders" href="">Compras</a>
-      <a class="cart" href="{{ routes.cart_url }}"><i class="fa fa-shopping-cart"></i></a>
+      <a class="cart" href="{{ routes.cart_url }}">{% render 'icon-cart' %}</a>
     </div>
   </section>
 </header>

@@ -1,0 +1,150 @@
+#general-header {
+    width: 100%;
+    height: 120px;
+    background-color: #fff059ff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .row-1, .row-2 {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+        height: 60px;
+    }
+
+    .row-1 {
+        .logo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            width: 162px;
+            height: 40px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }            
+        }
+
+        .search {
+            background-color: #FFF;
+            width: 300px;
+            margin-left: 40px;
+            max-width: 600px;
+            min-width: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            input {
+                margin: 10px;
+                outline: none;
+                width: 100%;
+                margin-left: 20px;
+                border-right: 1px #CCC solid;
+
+                ::placeholder {
+                    color: #CCC;
+                }
+            }
+
+            button {
+                color: #CCC;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .row-2 {
+        justify-content: space-between;
+
+        .collections .principal-collection {
+            display: flex;
+
+            li {
+                height: 50px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                width: 100%;
+                margin-top: 5px;
+
+                a {
+                    color: #717171;
+                    font-size: 0.9em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: fit-content;
+                    padding: 15px 30px;
+
+                    &:hover {
+                        color: #000000;
+                        transition: 0.5s;
+                    }
+
+                    svg {
+                        width: 15px;
+                        margin-left: 5px;
+                        margin-top: 5px;
+                    }
+                }
+
+                .subcollection {
+                    background-color: #3d3d3d;
+                    top: 52.5px;
+                    right: 0;
+                    width: 200px;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px 0;
+
+                    li {
+                        margin: 0;
+
+                        a {
+                            color: #FFF;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+
+                            &::hover {
+                                background-color: #309af0;
+                            }                            
+                        }
+                    }
+                }
+            }
+        }
+
+        .user {
+            display: flex;
+
+            a {
+                color: #252525;
+                font-size: 0.9em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: fit-content;
+                padding: 10px;
+
+                &.cart {
+                    width: 45px;
+                    color: #252525;
+                }
+            }         
+        }
+    }
+}
