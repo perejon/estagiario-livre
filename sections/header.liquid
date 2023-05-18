@@ -12,8 +12,13 @@
     <nav class="collections">
       <ul class="principal-collection">
         {%- for link in linklists['main-menu'].links -%}
-          <li class="collection">
-            <a href="{{ link.url }}">{{ link.title }}
+          <li class="collection"
+            {% if link.links != blank %}
+              {{ 'data-menu-subcollection' }}
+            {% endif %}
+          >
+            <a class="principal-menu" data-menu-principal
+              href="{{ link.url }}">{{ link.title }}
             {% if link.links != blank %}
               {% render 'icon-arrow-down' %}
             {% endif %}
@@ -22,8 +27,29 @@
             {% if link.links != blank %}
               <ul class="subcollection">
                 {% for sublink in link.links %}
-                  <li>
-                    <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                  <li
+                    {% if sublink.links != blank %}
+                      {{ 'data-sub-menu-subcollection' }}
+                    {% endif %}
+                  >
+                    <a class="sub-menu" 
+                      href="{{ sublink.url }}">{{ sublink.title }}
+                    {% if sublink.links != blank %}
+                      {% render 'icon-arrow-right' %}
+                    {% endif %}
+                  </a>
+                  {% if sublink.links != blank %}
+                    <div class="box">
+                      <h3>Nossas Coleções</h3>
+                      <ul>
+                        {% for subsublink in sublink.links %}
+                          <li>
+                            <a href="{{ subsublink.url }}">{{ subsublink.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
                   </li>
                 {% endfor %}
               </ul>
